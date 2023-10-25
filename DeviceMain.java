@@ -12,6 +12,9 @@ public class DeviceMain {
         int numOfDevices = scan.nextInt();
         double totalPrice = 0;
         double totalWeight = 0;
+        int smartphoneNum = 0;
+        int laptopNum = 0;
+        int tabletNum = 0;
 
         if (numOfDevices > 0 && numOfDevices < 21) {
             for (int i = 0; i < numOfDevices; i++) {
@@ -24,6 +27,7 @@ public class DeviceMain {
                         int cameraResolution = random.nextInt(12, 16);          // MP
                         Smartphone smartphone = new Smartphone("Smartphone", Math.round(pricePhone * 100.0)/100.0, Math.round(weightPhone * 100.0)/100.0, Math.round(screenSize), cameraResolution);
                         System.out.println(smartphone);
+                        smartphoneNum++;
                         totalPrice += pricePhone;
                         totalWeight += weightPhone;
                         break;
@@ -37,6 +41,7 @@ public class DeviceMain {
                         int selectRAM = random.nextInt(RAM.length);
                         Laptop laptop = new Laptop("Laptop",  Math.round(priceLaptop * 100.0)/100.0,Math.round(weightLaptop * 100.0)/100.0, CPU[selectCPU], RAM[selectRAM]);
                         System.out.println(laptop);
+                        laptopNum++;
                         totalPrice += priceLaptop;
                         totalWeight += weightLaptop;
                         break;
@@ -50,6 +55,7 @@ public class DeviceMain {
                         int selectStorage = random.nextInt(storage.length);
                         Tablet tablet = new Tablet("Tablet",  Math.round(priceTablet * 100.0)/100.0, Math.round(weightTablet * 100.0)/100.0, OS[selectOS], storage[selectStorage]);
                         System.out.println(tablet);
+                        tabletNum++;
                         totalPrice += priceTablet;
                         totalWeight += weightTablet;
                         break;
@@ -66,5 +72,8 @@ public class DeviceMain {
 
         System.out.println("Total price of all devices: " + Math.round(totalPrice * 100.0)/100.0);
         System.out.println("Total weight of all devices: " + Math.round(totalWeight * 100.0)/100.0);
+        System.out.println("Number of Smartphones: " + smartphoneNum);
+        System.out.println("Number of Laptop: " + laptopNum);
+        System.out.println("Number of Tablet: " + tabletNum);
     }
 }
